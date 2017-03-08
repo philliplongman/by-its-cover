@@ -24,6 +24,7 @@ gem "annotate"
 gem "responders"
 gem "autoprefixer-rails"
 gem "devise"
+gem "valid_email"
 
 
 group :development do
