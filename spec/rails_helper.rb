@@ -67,4 +67,21 @@ RSpec.configure do |config|
     end
   end
 
+  config.before(:suite) do
+    FactoryGirl.factories.map(&:name).each do |model|
+      begin
+        FactoryGirl.build model
+      rescue => error
+        def red(string); "\e[31m#{string}\e[0m"; end
+
+        print red("Failure/Error: ")
+        print "The #{model.capitalize} factory is invalid\n\n"
+        print red("#{error.class}:\n")
+        print red("  #{error.message}\n")
+
+        exit
+      end
+    end
+  end
+
 end
