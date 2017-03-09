@@ -15,3 +15,19 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore cache
+/.sass-cache
+/.cache
+
+# Ignore .DS_store file
+.DS_Store
+
+# Ignore uploaded files in test/development
+/public/uploads
+
+# Ignore test coverage
+/coverage
+
+# Ignore .env
+.env
