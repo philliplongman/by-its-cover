@@ -73,6 +73,8 @@ GEM
     cliver (0.3.2)
     codeclimate-engine-rb (0.4.0)
       virtus (~> 1.0)
+    codeclimate-test-reporter (1.0.6)
+      simplecov
     coderay (1.1.1)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -306,6 +308,7 @@ DEPENDENCIES
   better_errors
   bullet
   capybara
+  codeclimate-test-reporter (~> 1.0.0)
   coffee-rails (~> 4.2)
   coveralls
   database_cleaner
@@ -330,6 +333,7 @@ DEPENDENCIES
   rspec-rails (~> 3.4)
   sass-rails (~> 5.0)
   shoulda-matchers
+  simplecov
   site_prism
   slim
   turbolinks (~> 5)

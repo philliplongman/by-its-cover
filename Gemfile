@@ -48,9 +48,11 @@ group :development, :test do
 end
 
 group :test do
+  gem "simplecov"
+  gem "codeclimate-test-reporter", "~> 1.0.0"
+  gem "coveralls", require: false
   gem "launchy", require: false
   gem "poltergeist"
-  gem "coveralls", require: false
   gem "database_cleaner"
   gem "site_prism"
   gem "valid_attribute"
