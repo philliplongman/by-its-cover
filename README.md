@@ -2,9 +2,7 @@
 
 ![Build Status](https://codeship.com/projects/2c8bec90-e684-0134-b09a-26edd27a570b/status?branch=master)
 [![Code Climate](https://codeclimate.com/github/casualsubversive/by-its-cover/badges/gpa.svg)](https://codeclimate.com/github/casualsubversive/by-its-cover)
-<!-- ![Code Climate](https://codeclimate.com/github/casualsubversive/by-its-cover.png) -->
 [![Test Coverage](https://codeclimate.com/github/casualsubversive/by-its-cover/badges/coverage.svg)](https://codeclimate.com/github/casualsubversive/by-its-cover/coverage)
-<!-- ![Coverage Status](https://coveralls.io/repos/casualsubversive/by-its-cover/badge.png) -->
 
 By Its Cover was my final project for Launch Academy, which I am continuing to tinker with.
 
