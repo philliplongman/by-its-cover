@@ -7,12 +7,12 @@ feature 'user creates profile', %Q{
 } do
 
   # [ ] Once I sign up, I am taken to a form to create a profile.
-  # [ ] I can upload an image file as my photo.
   # [ ] I must choose a username. I can't choose an existing username.
+  # [ ] I can optionally upload an image file as my photo.
+  # [ ] I can choose to list my gender, age, and location.
   # [ ] I must create a profile before I can use the app.
 
-  let(:user) { create :user }
-  # let(:user) { create :user, profile: nil }
+  let(:user) { create :user, profile: nil }
   let(:existing_user) { create :user }
 
   scenario "user fills out profile" do
@@ -21,14 +21,13 @@ feature 'user creates profile', %Q{
     expect(page).to have_content "Create your profile"
 
     fill_in "Username", with: "CallMeIshmael"
-    select "Male", from: "Gender"
+    select "Male", from: "#profile_gender"
     within "#birthday" do
       select "June", from: "Month"
       select "27",   from: "Day"
       select "1956", from: "Year"
     end
-    fill_in "City", with: "New Bedford"
-    select "MA", from: "State"
+    fill_in "Location", with: "New Bedford, MA"
 
     click_button "Create Profile"
 
@@ -39,6 +38,7 @@ feature 'user creates profile', %Q{
 
   scenario "user must choose a username" do
     sign_in user
+
     click_button "Create Profile"
 
     expect(page).to have_content "Username can't be blank"
@@ -47,6 +47,7 @@ feature 'user creates profile', %Q{
 
   scenario "username must be unique" do
     sign_in user
+
     fill_in "Username", with: existing_user.username
     click_button "Create Profile"
 
