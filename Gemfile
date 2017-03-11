@@ -26,6 +26,7 @@ gem "autoprefixer-rails"
 gem "devise"
 gem "valid_email"
 gem "validates_timeliness"
+gem "simple_form"
 
 
 group :development do
