@@ -1,4 +1,8 @@
-module SignIn
+module TestHelper
+
+  def open!
+    save_and_open_page
+  end
 
   def sign_in(user)
     visit root_path

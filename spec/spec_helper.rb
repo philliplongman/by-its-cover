@@ -17,7 +17,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-require "test_helper"
+require "support/test_helper"
 include TestHelper
 
 require "simplecov"
