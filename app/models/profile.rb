@@ -23,7 +23,7 @@ class Profile < ApplicationRecord
   belongs_to :user
 
   GENDERS = [
-    "Man", "Woman", "Trans Man", "Trans Woman", "Other/Non-Conforming"
+    "Male", "Female", "Trans Male", "Trans Female", "Other/Non-Conforming"
   ]
 
   validates :username, presence: true
@@ -35,5 +35,14 @@ class Profile < ApplicationRecord
     type: :date, allow_blank: true
   }
 
+  def age
+    Date.current.year - birthday.year + (past_birthday? ? 1 : 0)
+  end
+
+  private
+
+  def past_birthday?
+    (birthday.month <= Date.current.month) && (birthday.day <= Date.current.day)
+  end
 
 end

@@ -6,10 +6,10 @@ feature 'user creates profile', %Q{
   so I can have an identity on the site.
 } do
 
-  # [ ] Once I sign up, I am taken to a form to create a profile.
-  # [ ] I must choose a username. I can't choose an existing username.
+  # [x] Once I sign up, I am taken to a form to create a profile.
+  # [x] I must choose a username. I can't choose an existing username.
   # [ ] I can optionally upload an image file as my photo.
-  # [ ] I can choose to list my gender, age, and location.
+  # [x] I can choose to list my gender, age, and location.
   # [ ] I must create a profile before I can use the app.
 
   let(:user) { create :user, profile: nil }
@@ -21,18 +21,20 @@ feature 'user creates profile', %Q{
     expect(page).to have_content "Create your profile"
 
     fill_in "Username", with: "CallMeIshmael"
-    select "Male", from: "#profile_gender"
-    within "#birthday" do
-      select "June", from: "Month"
-      select "27",   from: "Day"
-      select "1956", from: "Year"
+    select "Male", from: "Gender"
+    within ".profile_birthday" do
+      select "June", from: "profile_birthday_2i"
+      select "27",   from: "profile_birthday_3i"
+      select "1956", from: "profile_birthday_1i"
     end
     fill_in "Location", with: "New Bedford, MA"
 
     click_button "Create Profile"
 
+    user.reload
+
     expect(page).to have_content "CallMeIshmael"
-    expect(page).to have_content user.age
+    expect(page).to have_content "Male, #{user.age}"
     expect(page).to have_content "New Bedford, MA"
   end
 
@@ -41,8 +43,10 @@ feature 'user creates profile', %Q{
 
     click_button "Create Profile"
 
-    expect(page).to have_content "Username can't be blank"
-    expect(page).to have_content "Create your profile"
+    expect(page).to have_content "Unable to create profile. See errors below."
+
+    error = find(".profile_username > .error").text
+    expect(error).to match "Username can't be blank"
   end
 
   scenario "username must be unique" do
@@ -51,10 +55,17 @@ feature 'user creates profile', %Q{
     fill_in "Username", with: existing_user.username
     click_button "Create Profile"
 
-    expect(page).to have_content "Sorry. That username is already taken."
+    expect(page).to have_content "Unable to create profile. See errors below."
+
+    error = find(".profile_username > .error").text
+    expect(error).to match "Username has already been taken"
+
+
     expect(page).to have_content "Create your profile"
   end
 
   pending "user uploads photo"
+
+  pending "user must create a profile"
 
 end

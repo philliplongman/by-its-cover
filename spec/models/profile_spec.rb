@@ -16,7 +16,7 @@ describe Profile do
 
   it "validates birth date" do
     should have_valid(:birthday).when(
-      Date.today - 130.years, Date.today, nil
+      Date.current - 130.years, Date.current, nil
     )
     should_not have_valid(:birthday).when(
       Date.yesterday - 130.years, Date.tomorrow, "string", 100
