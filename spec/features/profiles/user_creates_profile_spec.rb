@@ -66,6 +66,6 @@ feature 'user creates profile', %Q{
 
   pending "user uploads photo"
 
-  pending "user must create a profile"
+  pending "user must have a profile to create collections"
 
 end
