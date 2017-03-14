@@ -10,15 +10,14 @@ feature 'user creates profile', %Q{
   # [x] I must choose a username. I can't choose an existing username.
   # [x] I can choose to list my gender, age, and location.
   # [ ] I can upload an image file as my photo.
-  # [ ] I must create a profile before I can use the app.
+  # [ ] I must create a profile before I can create a collection.
 
   let(:user) { create :user, profile: nil }
-  let(:existing_user) { create :user }
 
   scenario "user fills out profile" do
     sign_in user
 
-    expect(page).to have_content "Create your profile"
+    expect(page).to be_new_profile_form
 
     fill_in "Username", with: "CallMeIshmael"
     select "Male", from: "Gender"
@@ -31,6 +30,8 @@ feature 'user creates profile', %Q{
 
     click_button "Create Profile"
 
+    expect(page).to be_user_page_for user
+
     expect(page).to have_content "CallMeIshmael"
     expect(page).to have_content "Male, #{user.reload.age}"
     expect(page).to have_content "New Bedford, Massachusetts"
@@ -39,27 +40,24 @@ feature 'user creates profile', %Q{
   scenario "user must choose a username" do
     sign_in user
 
+    # Don't fill out the form
     click_button "Create Profile"
 
-    expect(page).to have_content "Unable to create profile. See errors below."
-
-    error = find(".profile_username > .error").text
-    expect(error).to match "Username can't be blank"
+    expect(page).to be_new_profile_form
+    expect(page).to have_profile_creation_error
+    expect(page).to have_form_error "Username can't be blank"
   end
 
   scenario "username must be unique" do
+    existing_user = create :user
     sign_in user
 
     fill_in "Username", with: existing_user.username
     click_button "Create Profile"
 
-    expect(page).to have_content "Unable to create profile. See errors below."
-
-    error = find(".profile_username > .error").text
-    expect(error).to match "Username has already been taken"
-
-
-    expect(page).to have_content "Create your profile"
+    expect(page).to be_new_profile_form
+    expect(page).to have_profile_creation_error
+    expect(page).to have_form_error "Username has already been taken"
   end
 
   pending "user uploads photo"

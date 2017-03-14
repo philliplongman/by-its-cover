@@ -17,9 +17,6 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-require "support/test_helper"
-include TestHelper
-
 require "simplecov"
 SimpleCov.start do
   add_filter "/vendor/" # Ignores any file containing "/vendor/" in its path.

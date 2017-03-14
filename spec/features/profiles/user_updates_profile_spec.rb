@@ -7,14 +7,13 @@ feature 'user updates profile', %Q{
 } do
 
   let(:user) { create :user }
-  let(:vandal) { create :user }
 
   scenario "user updates profile information" do
     sign_in user
     click_link user.username
     click_link "Update my profile"
 
-    expect(page).to have_content "Update your profile"
+    expect(page).to be_edit_profile_form
 
     fill_in "Username", with: "DanishGirl"
     select "Trans Woman", from: "Gender"
@@ -33,11 +32,13 @@ feature 'user updates profile', %Q{
   end
 
   pending "user cannot access another's profile" do
+    vandal = create :user
     sign_in vandal
+
     visit edit_user_profile_path(user)
-    
-    expect(page).not_to have_content "Update your profile"
-    expect(page).to have_content "You are not authorized to do that"
+
+    expect(page).not_to be_edit_profile_form
+    expect(page).to have_unauthorized_access_error
   end
 
   pending "user updates profile photo"

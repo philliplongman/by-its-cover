@@ -1,4 +1,4 @@
-module TestHelper
+module FeaturesHelper
 
   def open!
     save_and_open_page
