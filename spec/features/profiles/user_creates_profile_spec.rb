@@ -8,8 +8,8 @@ feature 'user creates profile', %Q{
 
   # [x] Once I sign up, I am taken to a form to create a profile.
   # [x] I must choose a username. I can't choose an existing username.
-  # [ ] I can optionally upload an image file as my photo.
   # [x] I can choose to list my gender, age, and location.
+  # [ ] I can upload an image file as my photo.
   # [ ] I must create a profile before I can use the app.
 
   let(:user) { create :user, profile: nil }
@@ -27,15 +27,13 @@ feature 'user creates profile', %Q{
       select "27",   from: "profile_birthday_3i"
       select "1956", from: "profile_birthday_1i"
     end
-    fill_in "Location", with: "New Bedford, MA"
+    fill_in "Location", with: "New Bedford, Massachusetts"
 
     click_button "Create Profile"
 
-    user.reload
-
     expect(page).to have_content "CallMeIshmael"
-    expect(page).to have_content "Male, #{user.age}"
-    expect(page).to have_content "New Bedford, MA"
+    expect(page).to have_content "Male, #{user.reload.age}"
+    expect(page).to have_content "New Bedford, Massachusetts"
   end
 
   scenario "user must choose a username" do
@@ -66,6 +64,6 @@ feature 'user creates profile', %Q{
 
   pending "user uploads photo"
 
-  pending "user must have a profile to create collections"
+  pending "user must have a profile to create a collection"
 
 end
