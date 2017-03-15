@@ -1,17 +1,58 @@
-nav.top-bar
+- flash.each do |key, value|
+  div class="alert-box" data-alert=""
+    = value
+    a.close href="#" &#215;
+    
+nav.top-bar data-topbar="" role="navigation"
   ul.title-area
-    li.name
-      h1
-        a href="/" ByItsCover
-          
+    li.name: h1= link_to "By Its Cover", root_path, class: "logo"
+    li.toggle-topbar= link_to fa_icon("bars"), "#"
+    / li.toggle-topbar.menu-icon
+    /   = link_to "#" do
+    /     span Menu
+    
   section.top-bar-section
-    ul.right
+    / ul.right.show-for-small-only
+    /   li.white-link
+    /     a data-reveal-ajax="true" data-reveal-id="new-collection" href="#"
+    /       | Create a collection
+    /   - if current_user
+    /     li.white-link
+    /       = link_to 'User Profile', user_path(current_user)
+    /     li.white-link
+    /       = link_to 'Sign Out',destroy_user_session_path, method: :delete
+    /   - else
+    /     li.white-link
+    /       = link_to 'Sign Up', new_user_registration_path
+    /     li.white-link
+    /       = link_to 'Sign In', new_user_session_path
+        
+    ul.right.show-for-medium-up
       - if current_user
+        - if current_user.profile
+          li= link_to 'User Profile', user_path(current_user)
         li= link_to 'Sign Out', destroy_user_session_path, method: :delete
       - else
         li= link_to 'Sign Up', new_user_registration_path
         li= link_to 'Sign In', new_user_session_path
+      / - if current_user
+      /   li.active
+      /     a data-reveal-ajax="true" data-reveal-id="new-collection" href="#"
+      /       = fa_icon "plus-circle", text: "Create a collection"
+      /   li.has-dropdown.not-click
+      /     = link_to user_path(current_user) do
+      /       / = image_tag current_user.profile_photo.thumb, class: "profile-thumbnail"
+      /       = current_user.username
+      /     ul.dropdown
+      /       li= link_to 'User Profile', user_path(current_user)
+      /       li= link_to 'Sign Out', destroy_user_session_path, method: :delete
+      / - else
+      /   li.active
+      /     = link_to new_user_session_path do
+      /       = fa_icon "plus-circle", text: "Create a collection"
+      /   li= link_to 'Sign Up', new_user_registration_path
+      /   li= link_to 'Sign In', new_user_session_path
 
-- flash.each do |key, value|
-  div class="flash flash-#{key}"
-    = value
+
+/ #new-collection.reveal-modal.medium(aria-hidden="true" 
+/   aria-labelledby="modalTitle" data-reveal="" role="dialog")

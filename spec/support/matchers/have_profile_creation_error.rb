@@ -6,7 +6,7 @@ module FeaturesMatchers
     message = "Unable to save profile. See errors below."
 
     match_unless_raises do |page|
-      expect(page).to have_css "div.flash.flash-alert", text: message
+      expect(page).to have_css "div.alert-box", text: message
     end
 
     failure_message do |page|
