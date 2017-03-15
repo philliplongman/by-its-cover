@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:show] do
-    resource :profile, only: [:show, :new, :create]
+    resource :profile, except: [:index, :destroy]
   end
 
 end

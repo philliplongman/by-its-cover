@@ -16,7 +16,7 @@ feature 'user updates profile', %Q{
     expect(page).to be_edit_profile_form
 
     fill_in "Username", with: "DanishGirl"
-    select "Trans Woman", from: "Gender"
+    select "Trans Female", from: "Gender"
     within ".profile_birthday" do
       select "September", from: "profile_birthday_2i"
       select "5",         from: "profile_birthday_3i"
@@ -29,11 +29,11 @@ feature 'user updates profile', %Q{
     expect(page).to be_user_page_for user
 
     expect(page).to have_content "DanishGirl"
-    expect(page).to have_content "Trans Woman, #{user.reload.age}"
+    expect(page).to have_content "Trans Female, #{user.reload.age}"
     expect(page).to have_content "Copenhagen, Denmark"
   end
 
-  pending "user cannot access another's profile" do
+  pending "user only has access to their own profile" do
     vandal = create :user
     sign_in vandal
 

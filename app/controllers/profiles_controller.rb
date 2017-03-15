@@ -19,6 +19,23 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:user_id])
+    @profile = @user.profile
+  end
+
+  def update
+    @user = User.find(params[:user_id])
+    @profile = @user.profile
+
+    if @profile.update(profile_params)
+      redirect_to @user
+    else
+      flash.alert = "Unable to save profile. See errors below."
+      render :edit
+    end
+  end
+
   private
 
   def profile_params

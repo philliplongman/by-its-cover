@@ -2,11 +2,4 @@
 
 h1 Create your profile
 
-= simple_form_for [@user, @profile], url: user_profile_path(@user) do |f|
-  = f.input :username
-  = f.input :picture
-  = f.input :gender, collection: Profile::GENDERS
-  = f.input :birthday, order: [:month, :day, :year], 
-    start_year: Date.current.year - 130, end_year: Date.current.year
-  = f.input :location
-  = f.button :submit, "Save Profile"
+= render "form"
