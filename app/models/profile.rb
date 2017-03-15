@@ -36,10 +36,14 @@ class Profile < ApplicationRecord
   }
 
   def age
-    Date.current.year - birthday.year + (past_birthday? ? 1 : 0)
+    birthday ? calculate_age : nil
   end
 
   private
+
+  def calculate_age
+    Date.current.year - birthday.year + (past_birthday? ? 1 : 0)
+  end
 
   def past_birthday?
     (birthday.month <= Date.current.month) && (birthday.day <= Date.current.day)
