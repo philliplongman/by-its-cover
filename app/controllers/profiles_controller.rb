@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
     if @profile.save
       redirect_to @user
     else
-      flash.alert = "Unable to create profile. See errors below."
+      flash.alert = "Unable to save profile. See errors below."
       render :new
     end
   end

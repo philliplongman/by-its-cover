@@ -24,7 +24,9 @@ feature 'user updates profile', %Q{
     end
     fill_in "Location", with: "Copenhagen, Denmark"
 
-    click_button "Update Profile"
+    click_button "Save Profile"
+
+    expect(page).to be_user_page_for user
 
     expect(page).to have_content "DanishGirl"
     expect(page).to have_content "Trans Woman, #{user.reload.age}"

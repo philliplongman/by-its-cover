@@ -28,7 +28,7 @@ feature 'user creates profile', %Q{
     end
     fill_in "Location", with: "New Bedford, Massachusetts"
 
-    click_button "Create Profile"
+    click_button "Save Profile"
 
     expect(page).to be_user_page_for user
 
@@ -41,10 +41,10 @@ feature 'user creates profile', %Q{
     sign_in user
 
     # Don't fill out the form
-    click_button "Create Profile"
+    click_button "Save Profile"
 
     expect(page).to be_new_profile_form
-    expect(page).to have_profile_creation_error
+    expect(page).to have_profile_not_saved_error
     expect(page).to have_form_error "Username can't be blank"
   end
 
@@ -53,10 +53,10 @@ feature 'user creates profile', %Q{
     sign_in user
 
     fill_in "Username", with: existing_user.username
-    click_button "Create Profile"
+    click_button "Save Profile"
 
     expect(page).to be_new_profile_form
-    expect(page).to have_profile_creation_error
+    expect(page).to have_profile_not_saved_error
     expect(page).to have_form_error "Username has already been taken"
   end
 

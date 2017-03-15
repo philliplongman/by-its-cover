@@ -1,9 +1,9 @@
 module FeaturesMatchers
   extend RSpec::Matchers::DSL
 
-  matcher :have_profile_creation_error do
+  matcher :have_profile_not_saved_error do
 
-    message = "Unable to create profile. See errors below."
+    message = "Unable to save profile. See errors below."
 
     match_unless_raises do |page|
       expect(page).to have_css "div.flash.flash-alert", text: message
