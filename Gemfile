@@ -25,6 +25,9 @@ gem "responders"
 gem "autoprefixer-rails"
 gem "devise"
 gem "valid_email"
+gem "validates_timeliness"
+gem "simple_form"
+gem "font-awesome-rails"
 
 
 group :development do
@@ -39,6 +42,7 @@ end
 group :development, :test do
   gem "pry"
   gem "pry-byebug"
+  gem "pry-rails"
   gem "awesome_print"
   gem "reek"
   gem "rspec-rails", "~> 3.4"
