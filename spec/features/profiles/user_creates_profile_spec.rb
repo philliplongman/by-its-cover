@@ -11,6 +11,8 @@ feature 'user creates profile', %Q{
   # [x] I can choose to list my gender, age, and location.
   # [ ] I can upload an image file as my photo.
   # [ ] I must create a profile before I can create a collection.
+  # [x] Once I save my profile, I am taken to my user page, where people can
+  #     see my profile info and book collections.
 
   let(:user) { create :user, profile: nil }
 

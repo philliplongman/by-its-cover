@@ -6,6 +6,13 @@ feature 'user updates profile', %Q{
   so I can change what others see about me.
 } do
 
+  # [x] When signed in, I should see my username in the navbar.
+  # [x] If I click on it, I am taken to my user page.
+  # [x] I should see a link to update my profile info. If I click it, I am
+  #     taken to a form to do that.
+  # [ ] Only I can edit my profile.
+  # [x] Once I save my profile, I am returned to my user page.
+
   let(:user) { create :user }
 
   scenario "user updates profile information" do
