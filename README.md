@@ -4,7 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/casualsubversive/by-its-cover/badges/gpa.svg)](https://codeclimate.com/github/casualsubversive/by-its-cover)
 [![Test Coverage](https://codeclimate.com/github/casualsubversive/by-its-cover/badges/coverage.svg)](https://codeclimate.com/github/casualsubversive/by-its-cover/coverage)
 
-By Its Cover was my final project for Launch Academy, which I am continuing to tinker with.
+By Its Cover was my final project for Launch Academy. I am currently rebuilding it from the ground up to show how I have advanced in the last year and a half.
 
 It's a Pinterest-style app for book discovery—meaning that users curate book lists of books they love, which other users can browse in a image-centric UI.
 
