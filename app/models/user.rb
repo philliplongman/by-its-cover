@@ -40,7 +40,7 @@ class User < ApplicationRecord
 
 
   def gender_and_age
-    [@user.gender, @user.age].select(&:present?).join(", ")
+    [gender, age].select(&:present?).join(", ")
   end
 
 end
