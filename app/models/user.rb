@@ -38,4 +38,9 @@ class User < ApplicationRecord
 
   delegate :age, :birthday, :gender, :location, :picture, :username, to: :profile
 
+
+  def gender_and_age
+    [gender, age].select(&:present?).join(", ")
+  end
+
 end

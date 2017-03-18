@@ -1,8 +1,8 @@
-= simple_form_for [@user, @profile], url: user_profile_path(@user) do |f|
+= simple_form_for [@profile.user, @profile], url: user_profile_path(@profile.user) do |f|
   = f.input :username
   = f.input :picture
   = f.input :gender, collection: Profile::GENDERS
-  = f.input :birthday, order: [:month, :day, :year], 
+  = f.input :birthday, order: [:month, :day, :year], include_blank: true, 
     start_year: Date.current.year - 130, end_year: Date.current.year
   = f.input :location
   = f.button :submit, "Save Profile"
