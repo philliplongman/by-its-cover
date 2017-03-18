@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(user_id: params[:user_id])
-    @profile.create profile_params
+    @profile.update profile_params
     respond_with @profile, location: -> { user_path(@profile.user) }
   end
 
