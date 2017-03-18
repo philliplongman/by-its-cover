@@ -5,7 +5,8 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.create profile_params.merge(user_id: params[:user_id])
+    @profile = Profile.new(user_id: params[:user_id])
+    @profile.create profile_params
     respond_with @profile, location: -> { user_path(@profile.user) }
   end
 
@@ -15,7 +16,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = Profile.find_by_user_id(params[:user_id])
-    @profile.update(profile_params)
+    @profile.update profile_params
     respond_with @profile, location: -> { user_path(@profile.user) }
   end
 
