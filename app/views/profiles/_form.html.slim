@@ -2,7 +2,7 @@
   = f.input :username
   = f.input :picture
   = f.input :gender, collection: Profile::GENDERS
-  = f.input :birthday, order: [:month, :day, :year], 
+  = f.input :birthday, order: [:month, :day, :year], include_blank: true, 
     start_year: Date.current.year - 130, end_year: Date.current.year
   = f.input :location
   = f.button :submit, "Save Profile"
