@@ -1,6 +1,6 @@
-- flash.each do |key, value|
-  div class="alert-box" data-alert=""
-    = value
+- flash.each do |type, message|
+  div class="alert-box #{type}" data-alert=""
+    = message
     a.close href="#" &#215;
     
 nav.top-bar data-topbar="" role="navigation"

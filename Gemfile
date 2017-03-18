@@ -28,6 +28,7 @@ gem "valid_email"
 gem "validates_timeliness"
 gem "simple_form"
 gem "font-awesome-rails"
+gem "responders"
 
 
 group :development do

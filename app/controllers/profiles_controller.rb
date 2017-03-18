@@ -7,16 +7,8 @@ class ProfilesController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @profile = Profile.new(profile_params)
-
-    @profile.user = @user
-
-    if @profile.save
-      redirect_to @user
-    else
-      flash.alert = "Unable to save profile. See errors below."
-      render :new
-    end
+    @profile = Profile.create profile_params.merge(user: @user)
+    respond_with @profile, location: -> { user_path(@user) }
   end
 
   def edit
@@ -26,14 +18,8 @@ class ProfilesController < ApplicationController
 
   def update
     @user = User.find(params[:user_id])
-    @profile = @user.profile
-
-    if @profile.update(profile_params)
-      redirect_to @user
-    else
-      flash.alert = "Unable to save profile. See errors below."
-      render :edit
-    end
+    @profile = @user.profile.update(profile_params)
+    respond_with @profile, location: -> { user_path(@user) }
   end
 
   private
