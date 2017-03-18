@@ -28,7 +28,6 @@ gem "valid_email"
 gem "validates_timeliness"
 gem "simple_form"
 gem "font-awesome-rails"
-gem "responders"
 
 
 group :development do
@@ -41,7 +40,6 @@ group :development do
 end
 
 group :development, :test do
-  gem "pry"
   gem "pry-byebug"
   gem "pry-rails"
   gem "awesome_print"
@@ -55,11 +53,9 @@ end
 group :test do
   gem "simplecov"
   gem "codeclimate-test-reporter", "~> 1.0.0"
-  gem "coveralls", require: false
   gem "launchy", require: false
   gem "poltergeist"
   gem "database_cleaner"
-  gem "site_prism"
   gem "valid_attribute"
   gem "shoulda-matchers"
 end
