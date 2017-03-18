@@ -33,6 +33,7 @@ feature 'user creates profile', %Q{
     click_button "Save Profile"
 
     expect(page).to be_user_page_for user
+    expect(page).to have_profile_saved_alert
 
     expect(page).to have_content "CallMeIshmael"
     expect(page).to have_content "Male, #{user.reload.age}"
