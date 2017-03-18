@@ -84,6 +84,17 @@ RSpec.configure do |config|
     end
   end
 
+  if Bullet.enable?
+    config.before(:each) do
+      Bullet.start_request
+    end
+
+    config.after(:each) do
+      Bullet.perform_out_of_channel_notifications if Bullet.notification?
+      Bullet.end_request
+    end
+  end
+
   Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
   config.include FeaturesHelper, type: :feature
   config.include FeaturesMatchers, type: :feature

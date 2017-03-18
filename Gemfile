@@ -36,7 +36,6 @@ group :development do
   gem "listen", "~> 3.0.5"
   gem "better_errors"
   gem "meta_request"
-  gem "bullet"
 end
 
 group :development, :test do
@@ -48,6 +47,7 @@ group :development, :test do
   gem "capybara"
   gem "factory_girl_rails"
   gem "fuubar"
+  gem "bullet"
 end
 
 group :test do
