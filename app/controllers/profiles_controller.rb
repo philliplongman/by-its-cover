@@ -1,31 +1,22 @@
 class ProfilesController < ApplicationController
+  include Profileable
 
   def new
-    @profile = Profile.new(user_id: params[:user_id])
+    profile
   end
 
   def create
-    @profile = Profile.new(user_id: params[:user_id])
-    @profile.update profile_params
-    respond_with @profile, location: -> { user_path(@profile.user) }
+    profile.save
+    respond_with profile, location: -> { user_path(profile.user) }
   end
 
   def edit
-    @profile = Profile.find_by_user_id(params[:user_id])
+    profile
   end
 
   def update
-    @profile = Profile.find_by_user_id(params[:user_id])
-    @profile.update profile_params
-    respond_with @profile, location: -> { user_path(@profile.user) }
-  end
-
-  private
-
-  def profile_params
-    params.require(:profile).permit(
-      :username, :picture, :gender, :birthday, :location
-    )
+    profile.save
+    respond_with profile, location: -> { user_path(profile.user) }
   end
 
 end
