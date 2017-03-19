@@ -28,7 +28,6 @@ gem "valid_email"
 gem "validates_timeliness"
 gem "simple_form"
 gem "font-awesome-rails"
-gem "responders"
 
 
 group :development do
@@ -37,29 +36,31 @@ group :development do
   gem "listen", "~> 3.0.5"
   gem "better_errors"
   gem "meta_request"
-  gem "bullet"
 end
 
 group :development, :test do
-  gem "pry"
   gem "pry-byebug"
   gem "pry-rails"
   gem "awesome_print"
-  gem "reek"
   gem "rspec-rails", "~> 3.4"
   gem "capybara"
   gem "factory_girl_rails"
   gem "fuubar"
+
+  gem "bullet"
+  gem "brakeman", require: false
+  gem "mutant-rspec", require: false
+  gem "rails_best_practices", require: false
+  gem "rubycritic", require: false
+  gem "traceroute", require: false
 end
 
 group :test do
   gem "simplecov"
   gem "codeclimate-test-reporter", "~> 1.0.0"
-  gem "coveralls", require: false
   gem "launchy", require: false
   gem "poltergeist"
   gem "database_cleaner"
-  gem "site_prism"
   gem "valid_attribute"
   gem "shoulda-matchers"
 end

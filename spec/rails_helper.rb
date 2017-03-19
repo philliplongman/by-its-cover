@@ -8,7 +8,6 @@ require 'rspec/rails'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 require "capybara/rails"
-require "shoulda-matchers"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -59,30 +58,6 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include FactoryGirl::Syntax::Methods
-
-  Shoulda::Matchers.configure do |config|
-    config.integrate do |with|
-      with.test_framework :rspec
-      with.library :rails
-    end
-  end
-
-  config.before(:suite) do
-    FactoryGirl.factories.map(&:name).each do |model|
-      begin
-        FactoryGirl.build model
-      rescue => error
-        def red(string); "\e[31m#{string}\e[0m"; end
-
-        print red("Failure/Error: ")
-        print "The #{model.capitalize} factory is invalid\n\n"
-        print red("#{error.class}:\n")
-        print red("  #{error.message}\n")
-
-        exit
-      end
-    end
-  end
 
   Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
   config.include FeaturesHelper, type: :feature
