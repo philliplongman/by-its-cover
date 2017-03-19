@@ -5,14 +5,14 @@ module Resourceable
   def access_resource(resource)
     resource = resource.to_s.downcase.singularize
 
-    create_methods_for_singular_resources resouce
+    create_methods_for_singular_resources resource
     create_shared_methods resource
   end
 
   def access_resources(resource)
     resource = resource.to_s.downcase.singularize
 
-    create_methods_for_plural_resources resouce
+    create_methods_for_plural_resources resource
     create_shared_methods resource
   end
 
