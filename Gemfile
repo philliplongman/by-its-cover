@@ -42,12 +42,17 @@ group :development, :test do
   gem "pry-byebug"
   gem "pry-rails"
   gem "awesome_print"
-  gem "reek"
   gem "rspec-rails", "~> 3.4"
   gem "capybara"
   gem "factory_girl_rails"
   gem "fuubar"
+
   gem "bullet"
+  gem "brakeman", require: false
+  gem "mutant-rspec", require: false
+  gem "rails_best_practices", require: false
+  gem "rubycritic", require: false
+  gem "traceroute", require: false
 end
 
 group :test do
