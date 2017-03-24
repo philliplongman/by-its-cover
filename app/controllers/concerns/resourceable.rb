@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'resourceable/accessor'
+require "resourceable/accessor"
 
 module Resourceable
 
