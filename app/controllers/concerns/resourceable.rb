@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'resourceable/accessor'
 
 module Resourceable
@@ -26,7 +28,7 @@ module Resourceable
 
   alias_method :access_resources, :access_resource
 
-  def define_access_methods_for(resource, options={})
+  def define_access_methods_for(resource, options = {})
     resource = resource.to_s.underscore.singularize
     # resource & options will be hard-coded into the methods
     # params will get called when the methods are called
