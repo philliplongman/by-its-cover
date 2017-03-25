@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
+  access_resource :users
 
   def show
-    @user = User.find(params[:id])
+    user
   end
 
 end
