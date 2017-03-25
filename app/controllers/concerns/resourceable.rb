@@ -30,18 +30,25 @@ module Resourceable
 
   def define_access_methods_for(resource, options = {})
     resource = resource.to_s.underscore.singularize
-    # resource & options will be hard-coded into the methods
-    # params will get called when the methods are called
 
-    # define memoized getter method for collection
+    define_memoized_getter_for_collection resource, options
+    define_memoized_getter_for_single_record resource, options
+  end
+
+  def define_memoized_getter_for_collection(resource, options = {})
+    # resource & options will be hard-coded into the method
+    # params will get called when the methods is called
     define_method resource.pluralize.to_sym do
       instance_variable_get("@#{resource.pluralize}") || begin
         accessor = Accessor.new(resource, options, params)
         instance_variable_set "@#{resource.pluralize}", accessor.collection
       end
     end
+  end
 
-    # define memoized getter method for single records
+  def define_memoized_getter_for_single_record(resource, options = {})
+    # resource & options will be hard-coded into the method
+    # params will get called when the methods is called
     define_method resource.to_sym do
       instance_variable_get("@#{resource}") || begin
         accessor = Accessor.new(resource, options, params)
@@ -49,4 +56,5 @@ module Resourceable
       end
     end
   end
+  
 end
