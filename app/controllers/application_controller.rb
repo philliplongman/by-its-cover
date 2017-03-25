@@ -15,4 +15,5 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::InvalidAuthenticityToken
     sign_out current_user
   end
+
 end
