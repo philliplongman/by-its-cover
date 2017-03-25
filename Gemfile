@@ -22,8 +22,8 @@ gem "uglifier", ">= 1.3.0"
 
 gem "annotate"
 gem "autoprefixer-rails"
-gem "font-awesome-rails"
 gem "devise"
+gem "font-awesome-rails"
 gem "responders"
 gem "simple_form"
 gem "valid_email"
@@ -40,11 +40,11 @@ end
 group :development, :test do
   gem "awesome_print"
   gem "capybara"
+  gem "factory_girl_rails"
+  gem "fuubar"
   gem "pry-byebug"
   gem "pry-rails"
-  gem "factory_girl_rails"
   gem "rspec-rails", "~> 3.4"
-  gem "fuubar"
 
   gem "bullet"
 
