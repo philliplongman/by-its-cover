@@ -1,5 +1,17 @@
+Metrics/LineLength:
+  Max: 90
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
 Style/EmptyLinesAroundClassBody:
   EnforcedStyle: empty_lines_special
 
 Style/EmptyLinesAroundModuleBody:
   EnforcedStyle: empty_lines_special
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
