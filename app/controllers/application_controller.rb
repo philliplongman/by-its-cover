@@ -1,6 +1,6 @@
 require "application_responder"
 
-class ApplicationController < ActionController::Base  #:nodoc: all
+class ApplicationController < ActionController::Base #:nodoc: all
   extend Resourceable
 
   self.responder = ApplicationResponder
@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base  #:nodoc: all
     user.profile ? root_path : new_user_profile_path(user)
   end
 
-  rescue_from ActionController::InvalidAuthenticityToken
+  rescue_from ActionController::InvalidAuthenticityToken do
     sign_out current_user
   end
 
