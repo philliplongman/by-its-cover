@@ -5,49 +5,49 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 gem "rails", "~> 5.0.1"
+
 gem "pg", "~> 0.18"
 gem "puma", "~> 3.0"
-gem "sass-rails", "~> 5.0"
-gem "uglifier", ">= 1.3.0"
-gem "coffee-rails", "~> 4.2"
-gem "jquery-rails"
+
+gem "foundation-rails", "~> 5.5.2"
 gem "jbuilder", "~> 2.5"
+gem "jquery-rails"
+gem "sass-rails", "~> 5.0"
+gem "slim"
 gem "turbolinks", "~> 5"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "uglifier", ">= 1.3.0"
 
-gem "foundation-rails", "~> 5.5.2"
-gem "slim"
 gem "annotate"
-gem "responders"
 gem "autoprefixer-rails"
+gem "font-awesome-rails"
 gem "devise"
+gem "responders"
+gem "simple_form"
 gem "valid_email"
 gem "validates_timeliness"
-gem "simple_form"
-gem "font-awesome-rails"
-
 
 group :development do
+  gem "better_errors"
+  gem "listen", "~> 3.0.5"
+  gem "meta_request"
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem "web-console", ">= 3.3.0"
-  gem "listen", "~> 3.0.5"
-  gem "better_errors"
-  gem "meta_request"
 end
 
 group :development, :test do
+  gem "awesome_print"
+  gem "capybara"
   gem "pry-byebug"
   gem "pry-rails"
-  gem "awesome_print"
-  gem "rspec-rails", "~> 3.4"
-  gem "capybara"
   gem "factory_girl_rails"
+  gem "rspec-rails", "~> 3.4"
   gem "fuubar"
 
   gem "bullet"
+
   gem "brakeman", require: false
   gem "mutant-rspec", require: false
   gem "rails_best_practices", require: false
@@ -56,13 +56,13 @@ group :development, :test do
 end
 
 group :test do
-  gem "simplecov"
   gem "codeclimate-test-reporter", "~> 1.0.0"
+  gem "database_cleaner"
   gem "launchy", require: false
   gem "poltergeist"
-  gem "database_cleaner"
-  gem "valid_attribute"
   gem "shoulda-matchers"
+  gem "simplecov"
+  gem "valid_attribute"
 end
 
 group :production, :staging do
