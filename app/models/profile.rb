@@ -24,7 +24,7 @@ class Profile < ApplicationRecord
 
   GENDERS = [
     "Male", "Female", "Trans Male", "Trans Female", "Other/Non-Conforming"
-  ]
+  ].freeze
 
   validates :username, presence: true
   validates :username, uniqueness: { case_sensitive: false }
