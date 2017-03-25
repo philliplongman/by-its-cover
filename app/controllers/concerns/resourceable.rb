@@ -32,7 +32,7 @@ module Resourceable
     models.each { |model| define_access_methods_for model }
   end
 
-  alias :access_resources :access_resource
+  alias access_resources access_resource
 
   def define_access_methods_for(resource, options = {})
     resource = resource.to_s.underscore.singularize
