@@ -1,8 +1,8 @@
 # By Its Cover
 
 [![Build Status](https://app.codeship.com/projects/2c8bec90-e684-0134-b09a-26edd27a570b/status?branch=master)](https://app.codeship.com/projects/206840)
-[![Code Climate](https://codeclimate.com/github/casualsubversive/by-its-cover/badges/gpa.svg)](https://codeclimate.com/github/casualsubversive/by-its-cover)
-[![Test Coverage](https://codeclimate.com/github/casualsubversive/by-its-cover/badges/coverage.svg)](https://codeclimate.com/github/casualsubversive/by-its-cover/coverage)
+[![Code Climate](https://codeclimate.com/github/philliplongman/by-its-cover/badges/gpa.svg)](https://codeclimate.com/github/philliplongman/by-its-cover)
+[![Test Coverage](https://codeclimate.com/github/philliplongman/by-its-cover/badges/coverage.svg)](https://codeclimate.com/github/philliplongman/by-its-cover/coverage)
 [![Issue Count](https://codeclimate.com/github/philliplongman/by-its-cover/badges/issue_count.svg)](https://codeclimate.com/github/philliplongman/by-its-cover)
 
 By Its Cover was my final project for Launch Academy. I am currently rebuilding it from the ground up to show how I have advanced in the last year and a half.
