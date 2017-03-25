@@ -24,14 +24,14 @@ class Profile < ApplicationRecord
 
   GENDERS = [
     "Male", "Female", "Trans Male", "Trans Female", "Other/Non-Conforming"
-  ]
+  ].freeze
 
   validates :username, presence: true
   validates :username, uniqueness: { case_sensitive: false }
   validates :username, length: { maximum: 25 }
   validates :gender,   inclusion: { in: GENDERS, allow_blank: true }
   validates :birthday, timeliness: {
-    between: [lambda { Date.current - 130.years }, lambda { Date.current }],
+    between: [-> { Date.current - 130.years }, -> { Date.current }],
     type: :date, allow_blank: true
   }
 

@@ -1,4 +1,6 @@
-class ApplicationResponder < ActionController::Responder
+# frozen_string_literal: true
+
+class ApplicationResponder < ActionController::Responder #:nodoc: all
   include Responders::FlashResponder
   include Responders::HttpCacheResponder
 
