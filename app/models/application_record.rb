@@ -1,3 +1,5 @@
-class ApplicationRecord < ActiveRecord::Base
+class ApplicationRecord < ActiveRecord::Base  #:nodoc: all
+
   self.abstract_class = true
+  
 end
