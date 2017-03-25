@@ -2,7 +2,7 @@ require "application_responder"
 
 class ApplicationController < ActionController::Base
   extend Resourceable
-  
+
   self.responder = ApplicationResponder
   respond_to :html
 
@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     user.profile ? root_path : new_user_profile_path(user)
   end
 
-  rescue_from ActionController::InvalidAuthenticityToken do |exception|
+  rescue_from ActionController::InvalidAuthenticityToken
     sign_out current_user
   end
 end
