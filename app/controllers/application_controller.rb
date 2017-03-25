@@ -1,6 +1,6 @@
 require "application_responder"
 
-class ApplicationController < ActionController::Base #:nodoc: all
+class ApplicationController < ActionController::Base
   extend Resourceable
 
   self.responder = ApplicationResponder
