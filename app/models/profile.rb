@@ -31,7 +31,7 @@ class Profile < ApplicationRecord
   validates :username, length: { maximum: 25 }
   validates :gender,   inclusion: { in: GENDERS, allow_blank: true }
   validates :birthday, timeliness: {
-    between: [lambda { Date.current - 130.years }, lambda { Date.current }],
+    between: [-> { Date.current - 130.years }, -> { Date.current }],
     type: :date, allow_blank: true
   }
 
