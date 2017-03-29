@@ -7,7 +7,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  username   :string           not null
-#  picture    :string
+#  avatar     :string
 #  gender     :string
 #  birthday   :date
 #  location   :string

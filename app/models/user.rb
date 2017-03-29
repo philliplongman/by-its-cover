@@ -36,7 +36,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true, email: true
 
-  delegate :age, :birthday, :gender, :location, :picture, :username, to: :profile
+  delegate :age, :avatar, :birthday, :gender, :location, :username, to: :profile
 
   def gender_and_age
     [gender, age].select(&:present?).join(", ")
