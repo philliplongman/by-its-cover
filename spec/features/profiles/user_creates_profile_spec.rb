@@ -29,15 +29,18 @@ feature 'user creates profile', %Q{
       select "1956", from: "profile_birthday_1i"
     end
     fill_in "Location", with: "New Bedford, Massachusetts"
+    attach_file "Picture", "spec/fixtures/ishmael.jpg"
 
     click_button "Save Profile"
 
     expect(page).to be_user_page_for user
     expect(page).to have_profile_saved_alert
 
+
     expect(page).to have_content "CallMeIshmael"
     expect(page).to have_content "Male, #{user.reload.age}"
     expect(page).to have_content "New Bedford, Massachusetts"
+    expect(page).to have_image "ishmael"
   end
 
   scenario "user must choose a username" do
@@ -64,6 +67,8 @@ feature 'user creates profile', %Q{
   end
 
   pending "user uploads photo"
+
+  pending "uploaded photo is remembered after failed validation"
 
   pending "user must have a profile to create a collection"
 
