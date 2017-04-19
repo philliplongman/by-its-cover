@@ -22,6 +22,7 @@ gem "uglifier", ">= 1.3.0"
 
 gem "annotate"
 gem "autoprefixer-rails"
+gem "carrierwave"
 gem "devise"
 gem "font-awesome-rails"
 gem "responders"
