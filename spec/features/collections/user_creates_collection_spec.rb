@@ -26,7 +26,7 @@ feature 'user creates collection', %Q{
     fill_in "Description", with: "These are some of my favorite books."
     click_button "Create Collection"
 
-    expect(page).to be_collection_page
+    expect(page).to be_collection_page_for Collection.last
 
     expect(page).to have_content "My favorite books"
     expect(page).to have_content "These are some of my favorite books."
