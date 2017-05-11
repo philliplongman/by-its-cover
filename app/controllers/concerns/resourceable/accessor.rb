@@ -32,11 +32,19 @@ module Resourceable
     attr_reader :decorator, :key, :klass, :params, :scope
 
     def existing_resource
-      klass.find_by(identifier) unless new_or_create_action?
+      klass.find_by(identifier) unless resource_is_being_created?
     end
 
     def new_resource
       klass.new identifier
+    end
+
+    def resource_is_being_created?
+      new_or_create_action? && eponymous_controller?
+    end
+
+    def eponymous_controller?
+      params[:controller] == resource.pluralize
     end
 
     def new_or_create_action?
@@ -49,10 +57,6 @@ module Resourceable
 
     def resource_id_from_params
       params["#{resource}_id"] || (params[:id] if eponymous_controller?) || nil
-    end
-
-    def eponymous_controller?
-      params[:controller] == resource.pluralize
     end
 
     def updated_attributes
