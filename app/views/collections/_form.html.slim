@@ -1,0 +1,5 @@
+= simple_form_for [user, collection] do |f|
+  = f.error_notification
+  = f.input :title, input_html: { maxlength: 100 }
+  = f.input :description, as: :text, input_html: { maxlength: 500 }
+  = f.button :submit

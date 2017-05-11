@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
     resource :profile, except: [:index, :destroy]
+    resources :collections, only: [:show, :new, :create]
   end
 
 end

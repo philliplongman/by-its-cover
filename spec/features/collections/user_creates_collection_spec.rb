@@ -59,6 +59,7 @@ feature 'user creates collection', %Q{
   end
 
   scenario "user tries to create a collection without signing in" do
+    visit root_path
     click_link "Create a collection"
 
     expect(page).to be_login_form
