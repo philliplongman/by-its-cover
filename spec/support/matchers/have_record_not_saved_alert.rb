@@ -3,8 +3,7 @@ module FeaturesMatchers
 
   matcher :have_record_not_saved_alert do
 
-    message = /^Unable to save .+\. See errors below\./
-              # "Unable to save record. See errors below."
+    message = /^.+could not be saved\./ # "Record could not be saved."
 
     match_unless_raises do |page|
       expect(page).to have_css "div.alert-box.alert", text: message

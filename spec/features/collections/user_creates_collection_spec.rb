@@ -27,6 +27,7 @@ feature 'user creates collection', %Q{
     click_button "Create Collection"
 
     expect(page).to be_collection_page_for Collection.last
+    expect(page).to have_record_saved_alert
 
     expect(page).to have_content "My favorite books"
     expect(page).to have_content "These are some of my favorite books."
@@ -39,7 +40,7 @@ feature 'user creates collection', %Q{
     click_button "Create Collection"
 
     expect(page).to be_new_collection_form
-    expect(page).to have_collection_not_saved_alert
+    expect(page).to have_record_not_saved_alert
     expect(page).to have_form_error "Title can't be blank"
   end
 
@@ -53,7 +54,7 @@ feature 'user creates collection', %Q{
     click_button "Create Collection"
 
     expect(page).to be_new_collection_form
-    expect(page).to have_collection_not_saved_alert
+    expect(page).to have_record_not_saved_alert
     expect(page).to have_form_error "Title has already been taken"
   end
 
