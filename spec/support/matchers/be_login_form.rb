@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module FeaturesMatchers
   extend RSpec::Matchers::DSL
 

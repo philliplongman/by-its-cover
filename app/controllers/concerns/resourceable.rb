@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require "resourceable/accessor"
 
 # Module to DRY controllers by encapsulating finding/initializing ActiveRecord

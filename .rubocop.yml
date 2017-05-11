@@ -19,5 +19,8 @@ Style/EmptyLinesAroundModuleBody:
 Style/EmptyMethod:
   EnforcedStyle: expanded
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes

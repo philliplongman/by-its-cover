@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Resourceable
   # PORO to encapsulate the business logic of finding/initializing ActiveRecord
   # objects and loading data from params. Returned records are not saved.
