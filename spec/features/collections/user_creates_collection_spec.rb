@@ -1,6 +1,8 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
-feature 'user creates collection', %Q{
+require "rails_helper"
+
+feature "user creates collection", %{
   As an authenticated user,
   I want to create a collection,
   so I can add books to show off.
