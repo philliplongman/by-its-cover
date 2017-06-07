@@ -1,9 +1,9 @@
 module FeaturesMatchers
   extend RSpec::Matchers::DSL
 
-  matcher :be_new_profile_form do
+  matcher :be_new_collection_form do
 
-    title = "Create your profile"
+    title = "Create a collection"
 
     match_unless_raises do |page|
       expect(page).to have_title title

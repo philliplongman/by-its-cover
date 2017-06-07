@@ -34,7 +34,7 @@ feature 'user updates profile', %Q{
     click_button "Save Profile"
 
     expect(page).to be_user_page_for user
-    expect(page).to have_profile_saved_alert
+    expect(page).to have_record_saved_alert
 
     expect(page).to have_content "DanishGirl"
     expect(page).to have_content "Trans Female, #{user.reload.age}"

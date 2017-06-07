@@ -33,6 +33,7 @@ class User < ApplicationRecord
     :rememberable, :trackable, :validatable
 
   has_one :profile, dependent: :destroy
+  has_many :collections, dependent: :destroy
 
   validates :email, presence: true, email: true
 

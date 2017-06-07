@@ -1,9 +1,9 @@
 module FeaturesMatchers
   extend RSpec::Matchers::DSL
 
-  matcher :have_profile_saved_alert do
+  matcher :have_record_saved_alert do
 
-    message = "Profile saved."
+    message = /^.+ saved\./ # "Record saved."
 
     match_unless_raises do |page|
       expect(page).to have_css "div.alert-box.notice", text: message

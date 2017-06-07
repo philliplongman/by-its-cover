@@ -1,13 +1,13 @@
 module FeaturesMatchers
   extend RSpec::Matchers::DSL
 
-  matcher :be_new_profile_form do
+  matcher :be_login_form do
 
-    title = "Create your profile"
+    title = "Log in"
 
     match_unless_raises do |page|
       expect(page).to have_title title
-      expect(page).to have_css "h1", text: title
+      expect(page).to have_css "h2", text: title
     end
 
     failure_message do |page|

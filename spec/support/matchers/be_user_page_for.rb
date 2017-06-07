@@ -11,8 +11,8 @@ module FeaturesMatchers
     end
 
     failure_message do |page|
-      if page.title != title
-        "expected page title to be '#{expected.username}', got '#{page.title}'"
+      if !page.title.include? expected.username
+        "expected page title '#{page.title}' to contain '#{expected.username}'"
       else
         "expected to find <h1> '#{expected.username}', in: \n#{page.text}"
       end

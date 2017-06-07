@@ -26,32 +26,41 @@ nav.top-bar data-topbar="" role="navigation"
     /       = link_to 'Sign Up', new_user_registration_path
     /     li.white-link
     /       = link_to 'Sign In', new_user_session_path
+    
+    / ul.right.show-for-medium-up
+    /   - if current_user
+    /     li.active
+    /       a data-reveal-ajax="true" data-reveal-id="new-collection" href="#"
+    /         = fa_icon "plus-circle", text: "Create a collection"
+    /     li.has-dropdown.not-click
+    /       = link_to user_path(current_user) do
+    /         = image_tag current_user.profile_photo.thumb, class: "profile-thumbnail"
+    /         = current_user.username
+    /       ul.dropdown
+    /         li= link_to 'User Profile', user_path(current_user)
+    /         li= link_to 'Sign Out', destroy_user_session_path, method: :delete
+    /   - else
+    /     li.active
+    /       = link_to new_user_session_path do
+    /         = fa_icon "plus-circle", text: "Create a collection"
+    /     li= link_to 'Sign Up', new_user_registration_path
+    /     li= link_to 'Sign In', new_user_session_path
         
-    ul.right.show-for-medium-up
+    ul.right
       - if current_user
+        li.active
+          = link_to new_user_collection_path(current_user) do
+            = fa_icon "plus-circle", text: "Create a collection"
         - if current_user.profile
           li= link_to current_user.username, user_path(current_user)
         li= link_to 'Sign Out', destroy_user_session_path, method: :delete
+        
       - else
+        li.active
+          = link_to new_user_session_path do
+             = fa_icon "plus-circle", text: "Create a collection"
         li= link_to 'Sign Up', new_user_registration_path
         li= link_to 'Sign In', new_user_session_path
-      / - if current_user
-      /   li.active
-      /     a data-reveal-ajax="true" data-reveal-id="new-collection" href="#"
-      /       = fa_icon "plus-circle", text: "Create a collection"
-      /   li.has-dropdown.not-click
-      /     = link_to user_path(current_user) do
-      /       / = image_tag current_user.profile_photo.thumb, class: "profile-thumbnail"
-      /       = current_user.username
-      /     ul.dropdown
-      /       li= link_to 'User Profile', user_path(current_user)
-      /       li= link_to 'Sign Out', destroy_user_session_path, method: :delete
-      / - else
-      /   li.active
-      /     = link_to new_user_session_path do
-      /       = fa_icon "plus-circle", text: "Create a collection"
-      /   li= link_to 'Sign Up', new_user_registration_path
-      /   li= link_to 'Sign In', new_user_session_path
 
 
 / #new-collection.reveal-modal.medium(aria-hidden="true" 

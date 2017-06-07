@@ -34,7 +34,7 @@ feature 'user creates profile', %Q{
     click_button "Save Profile"
 
     expect(page).to be_user_page_for user
-    expect(page).to have_profile_saved_alert
+    expect(page).to have_record_saved_alert
 
 
     expect(page).to have_content "CallMeIshmael"
@@ -50,7 +50,7 @@ feature 'user creates profile', %Q{
     click_button "Save Profile"
 
     expect(page).to be_new_profile_form
-    expect(page).to have_profile_not_saved_alert
+    expect(page).to have_record_not_saved_alert
     expect(page).to have_form_error "Username can't be blank"
   end
 
@@ -62,7 +62,7 @@ feature 'user creates profile', %Q{
     click_button "Save Profile"
 
     expect(page).to be_new_profile_form
-    expect(page).to have_profile_not_saved_alert
+    expect(page).to have_record_not_saved_alert
     expect(page).to have_form_error "Username has already been taken"
   end
 
