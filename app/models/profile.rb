@@ -34,6 +34,8 @@ class Profile < ApplicationRecord
     type: :date, allow_blank: true
   }
 
+  mount_uploader :avatar, AvatarUploader
+
   def age
     birthday ? calculate_age : nil
   end
