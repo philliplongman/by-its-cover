@@ -7,7 +7,9 @@
 
 Pinterest-style app for book discovery. Users curate book lists of books they love, which other users can browse—and purchase though affiliate links—in an image-centric UI that tries to capture the feel of browsing through a physical book store.
 
-By Its Cover was my final project for Launch Academy. I am currently rebuilding it from the ground up to show how I have advanced in the last year and a half. This repo isn't ready to deploy yet, but you can see the original [on Heroku](http://byitscover.herokuapp.com/), and see the code [on Github](https://github.com/philliplongman/by-its-cover-original).
+By Its Cover was my final project for Launch Academy. I am currently rebuilding it from the ground up to show how I have advanced in the last year and a half. The rebuild isn't ready to deploy yet, but you can see the original [on Heroku](http://byitscover.herokuapp.com/).
+
+Although this project has been on hold for awhile, I'm rather proud of the `Resourceable` module I created for it. You can read an explanation [here](https://gist.github.com/philliplongman/af64f9eae57f9561f9cf6cb34610e7d3).
 
 ### Inspiration
 
